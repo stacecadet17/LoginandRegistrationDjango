@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Success! Welcome {{ name }}!</h1>
+        {% if messages %}
+          {% for x in messages %}
+            <p>{{ x.message }}</p>
+          {% endfor %}
+        {% endif %}
+  </body>
+</html>

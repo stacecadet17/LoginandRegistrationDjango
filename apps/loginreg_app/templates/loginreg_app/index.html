@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Registration</h1>
+    {% if messages and request.session.valid == "Register" %}
+      {% for x in messages %}
+        <p>{{ x.message }}</p>
+      {% endfor %}
+    {% endif %}
+    <form action='/register' method='post'>
+      {% csrf_token %}
+      <br>
+      First Name:<input type='text' name='first_name'>
+      <br>
+      Last Name:<input type='text' name='last_name'>
+      <br>
+      Email:<input type='text' name='email'>
+      <br>
+      Password:<input type='text' name='password'>
+      <br>
+      Confirm Password:<input type='text' name='password_conf'>
+      <br>
+      <input type='submit' value='Register'>
+      <br>
+    </form>
+      <h1>Login</h1>
+      {% if messages and request.session.valid == "Login" %}
+        {% for x in messages %}
+          <p>{{ x.message }}</p>
+        {% endfor %}
+      {% endif %}
+        <br>
+      <form action='/login' method='post'>
+        {% csrf_token %}
+        <br>
+        Email:<input type='text' name='email'>
+        <br>
+        Password:<input type='text' name='password'>
+        <br>
+        <input type='submit' value='Login'>
+      </form>
+  </body>
+</html>
